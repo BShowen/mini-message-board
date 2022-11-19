@@ -20,20 +20,31 @@
       <div class="row mb-3">
         <div class="col">
           <form
-            class="row d-flex flex-column gap-2"
-            action="/new-message"
+            class="row d-flex flex-column gap-2 needs-validation"
+            action="/messages/new"
             method="POST"
+            novalidate
           >
             <div class="col">
               <!-- Author -->
-              <input type="text" class="form-control" placeholder="Your name" />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Your name"
+                name="author"
+                required
+              />
+              <div class="invalid-feedback">Your name is required.</div>
             </div>
             <div class="col">
               <!-- Message -->
               <textarea
+                name="message-content"
                 class="form-control"
                 placeholder="Your message"
+                required
               ></textarea>
+              <div class="invalid-feedback">A message is required.</div>
             </div>
             <div class="col">
               <button class="btn btn-primary btn-sm" type="submit">
@@ -60,5 +71,30 @@
         </div>
       </div>
     </div>
+
+    <script defer>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        "use strict";
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
   </body>
 </html>
