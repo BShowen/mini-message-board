@@ -2,12 +2,6 @@ var express = require("express");
 var router = express.Router();
 
 const dateTimeFormatter = require("../utils/dateFormat.js");
-// const options = {
-//   month: "short",
-//   day: "numeric",
-//   year: "numeric",
-// };
-// const dateTimeFormatter = new Intl.DateTimeFormat("en-US", options);
 
 const messages = [
   {
