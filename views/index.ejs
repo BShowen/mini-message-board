@@ -21,7 +21,7 @@
         <div class="col">
           <form
             class="row d-flex flex-column gap-2 needs-validation"
-            action="/messages/new"
+            action="/new"
             method="POST"
             novalidate
           >
@@ -59,9 +59,9 @@
         <div class="col-12">
           <% messages.forEach((message)=> { %>
           <div class="card mb-3">
-            <div class="card-header">
-              <h5 class="card-title"><%= message.title %></h5>
-              <p class="card-subtitle text-muted">Author</p>
+            <div class="card-header d-flex flex-row align-items-center">
+              <h5 class="card-title me-auto"><%= message.author %></h5>
+              <p class="card-text text-muted"><%= message.date %></p>
             </div>
             <div class="card-body">
               <p class="card-text"><%= message.body %></p>
